@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="r" class="com.telusko.AppleSpring.Radio" primary="true">
+		<property name="station" value="98.3"></property>
+	</bean> 
+	
+	<bean id="r1" class="com.telusko.AppleSpring.Radio">
+		<property name="station" value="94.3"></property>
+	</bean> 
+	
+	<bean id="abc" class="com.telusko.AppleSpring.Car" autowire="byType">
+		<property name="cost" value="5500"></property>	
+		
+	</bean>
+	
+	
+	
+	
+	
+	
+
+</beans>
