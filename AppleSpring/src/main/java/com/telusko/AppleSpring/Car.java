@@ -1,10 +1,14 @@
 package com.telusko.AppleSpring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 // Beans
 
 public class Car 
 {
 	private int cost;
+	
+	@Autowired
 	private Radio radio;
 	
 	public Radio getRadio() {
