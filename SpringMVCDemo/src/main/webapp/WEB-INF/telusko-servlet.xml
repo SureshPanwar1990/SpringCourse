@@ -12,5 +12,11 @@
 	<ctx:annotation-config></ctx:annotation-config>
 	<ctx:component-scan base-package="com.telusko.controller"></ctx:component-scan>
 	
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
 </beans>	
 	

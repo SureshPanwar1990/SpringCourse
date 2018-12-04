@@ -1,8 +1,7 @@
-package com.telusko.controller;
+package com.applespring.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.telusko.model.Alien;
 
-@Controller			// Multi action controller
+@Controller
 public class HomeController 
 {
 	@ModelAttribute("alien5")
@@ -27,8 +26,15 @@ public class HomeController
 	}
 	
 	@RequestMapping("/")
-	public String home()
+	public String home(Model m)
 	{
+		Alien a = new Alien();
+		a.setAid(10);
+		a.setAname("Navin");
+		a.setAge(20);
+		
+		m.addAttribute("alien",a);
+		
 		return "home";
 	}
 	
@@ -66,6 +72,3 @@ public class HomeController
 		return mv;
 	}
 }
-
-
-// something-servlet.xml
