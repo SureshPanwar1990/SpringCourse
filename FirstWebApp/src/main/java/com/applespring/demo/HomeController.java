@@ -71,4 +71,25 @@ public class HomeController
 		
 		return mv;
 	}
+	@GetMapping("getAlien")
+	public ModelAndView getAlien(@RequestParam int aid)
+	{
+		ModelAndView mv = new ModelAndView("result");
+		
+		Alien a1 = new Alien();
+		a1.setAid(aid);
+		a1.setAname("Kishor");
+		a1.setAge(45);
+		
+		mv.addObject("result",a1);
+		
+		
+		
+		return mv;
+	}
+	
+	
+	// resource -> www.amazon.com/?cat=mobiles&brand=samsung
+	// www.amazon.com/mobiles/samsung
+	
 }

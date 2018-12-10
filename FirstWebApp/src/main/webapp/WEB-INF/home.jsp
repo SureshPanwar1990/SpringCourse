@@ -18,12 +18,15 @@
 	<input type="submit">
 </sform:form>
 <hr>
-<form action="divide" method="get">
-	<input type="text" name="t1"><br>
-	<input type="text" name="t2"><br>
+<form action="getAlien" method="get">
+	<input type="text" name="aid"><br>
+	
 
 	<input type="submit">
 </form>
+
+
+Angular
 
 
 </body>

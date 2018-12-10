@@ -6,6 +6,19 @@ public class Alien
 	private String aname;
 	private int age;
 	
+	
+	
+	
+	public Alien(int aid, String aname, int age) {
+		super();
+		this.aid = aid;
+		this.aname = aname;
+		this.age = age;
+	}
+	public Alien() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getAid() {
 		return aid;
 	}
