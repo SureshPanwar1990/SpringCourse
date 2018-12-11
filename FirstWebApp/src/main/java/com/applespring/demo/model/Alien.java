@@ -1,13 +1,16 @@
-package com.telusko.model;
+package com.applespring.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Alien 
 {
+	@Id
 	private int aid;
 	private String aname;
 	private int age;
-	
-	
-	
+
 	
 	public Alien(int aid, String aname, int age) {
 		super();
