@@ -1,5 +1,7 @@
 package com.applespring.demo;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+//
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.applespring.demo.model.Alien;
+import com.applespring.demo.repo.AlienRepository;
 
 @Controller
 public class HomeController 
 {
+	@Autowired
+	AlienRepository repo;
+	
 	@ModelAttribute("alien5")
 	public Alien getAlien()
 	{
@@ -72,24 +78,28 @@ public class HomeController
 		return mv;
 	}
 	@GetMapping("getAlien")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public ModelAndView getAlien(@RequestParam int aid)
 	{
+		
 		ModelAndView mv = new ModelAndView("result");
 		
 		Alien a1 = new Alien();
 		a1.setAid(aid);
 		a1.setAname("Kishor");
 		a1.setAge(45);
-		
 		mv.addObject("result",a1);
-		
-		
-		
+
+		return mv;
+	}
+	@GetMapping("getAliens")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public ModelAndView getAliens()
+	{
+		ModelAndView mv = new ModelAndView("result");
+		mv.addObject("result",repo.findAll());
 		return mv;
 	}
 	
-	
-	// resource -> www.amazon.com/?cat=mobiles&brand=samsung
-	// www.amazon.com/mobiles/samsung
 	
 }
